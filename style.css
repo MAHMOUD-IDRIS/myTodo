@@ -1,0 +1,138 @@
+* {
+    --clr-main : #021b13;
+    --clr-secondary: #0efdb1;
+    --clr-lightwriting: #0efdb1a8 ;
+    --clr-darkwriting: #021b13b2;
+}
+body {
+box-sizing: border-box;
+margin: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: var(--clr-main);
+padding: 0;
+color: var(--clr-darkwriting);
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    
+}
+header {
+    margin: 0;
+    height: 18vh;
+    background-color: var(--clr-secondary);
+    display: grid;
+    grid: 
+    "header header header header header header header" auto " .. menu ... summary summary summary summary" 40px / 5px minmax(20px, 40px) 1fr minmax(150px, 250px) 1fr;
+    
+  
+    
+}
+
+header h1 {
+    margin: 0;
+    grid-area: header;
+    text-align: center;
+    letter-spacing: .3em;
+    color: rgba(0,0,0,0.2);
+    
+   
+}
+header button {
+   grid-area: menu;
+}
+
+header .listSum {
+    display: flex;
+    justify-content: space-around;
+    grid-area: summary;
+    
+}
+.sum p {
+    display: inline-block;
+    padding-top: 1em;
+}
+h2 , .sum p {
+    margin: 0;
+    
+}
+main {
+    width: 100%;
+    color: var(--clr-lightwriting);
+    overflow: scroll;
+    
+}
+.sidemenu {
+    width: 250px;
+    height: 50vh;
+    background-color: blue;
+    position: absolute;
+    top: 20vh;
+    /*left: -250px;*/
+   
+}
+
+#todoItems li {
+    margin-bottom: 5px;
+}
+footer {
+    margin: 0 ;
+    padding: 10px 0;
+    height: 90px;
+    display: grid;
+    grid: "addBtn addBtn addBtn " auto "removeAll .. removeItem" auto / minmax(50px,150px) 1fr minmax(50px,150px);
+    position: relative;
+        
+}
+footer::before {
+    content: "";
+    width: 100%;
+    height: 70px;
+    background-color: var(--clr-secondary);
+    bottom: 0px;
+    position: absolute;
+}
+
+#addbtnTodo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--clr-main);
+    margin: auto;
+    grid-area: addBtn;
+    position: relative;
+    border: 1px solid var(--clr-secondary);
+    
+    
+}
+#addbtnTodo:hover {
+    border: 1px solid var(--clr-main);
+    transform: scale(1.2);
+}
+#addbtnTodo::before {
+    content: "+";
+    position: absolute;
+    right: 9px;
+    top: -12px;
+    color: var(--clr-secondary);
+    font-size: 3em;
+}
+#deleteAll {
+    grid-area: removeAll ;
+
+}
+#deleteAll , #deleteFinished {
+    background: 0;
+    border: none;
+    font-weight: 600;
+    color: var(--clr-darkwriting);
+    z-index: 1;
+}
+#deleteFinished {
+    grid-area: removeItem ;
+    
+}
