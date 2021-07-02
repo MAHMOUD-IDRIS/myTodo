@@ -14,7 +14,7 @@ color: var(--clr-darkwriting);
 }
 .container {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 10px);
     max-width: 400px;
     margin: 0 auto;
     padding: 0;
