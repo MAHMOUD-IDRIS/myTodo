@@ -19,12 +19,13 @@ color: var(--clr-darkwriting);
     margin: 0 auto;
     padding: 0;
     display: grid;
-    grid: "top" 18vh
+    grid: "top" minmax(100px, 18vh)
      "mid" 1fr;
 }
 header {
     margin: 0;
     height: 18vh;
+    min-height: 100px;
     background-color: var(--clr-secondary);
     display: grid;
     grid: 
@@ -71,6 +72,7 @@ main {
     max-width: 400px;
     height: calc(100vh - 18vh - 60px);
     background-color: var(--clr-main);
+    padding-left: 15px;
     position:absolute;
     /*left: -250px;*/
     clip-path: circle(100px at -90% -50%);
