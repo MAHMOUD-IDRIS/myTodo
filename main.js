@@ -10,5 +10,16 @@ document.getElementById('sidemenuBtn').onclick = ()=>{
 
 }
 
+//getting list elements and working on them
+const listElements = document.querySelectorAll('li');
+
+listElements.forEach(item => {
+    item.onclick = done();
+})
+
+function done (){
+console.log('clicked for done!')
+}
+
 
 
