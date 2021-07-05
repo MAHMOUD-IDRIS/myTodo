@@ -5,6 +5,7 @@ document.getElementById('sidemenuBtn').onclick = ()=>{
     console.log("Added");
     inputArea.placeholder = lists ? "Add New List" : "Add New Task";
     lists == true ? lists = false : lists = true;
+    document.querySelector(".sidemenu-btn").classList.toggle('open');
 
 
 }

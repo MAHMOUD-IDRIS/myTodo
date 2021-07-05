@@ -33,9 +33,7 @@ header {
     "header header header header header header header" auto " .. menu ... summary summary summary summary" 40px / 5px minmax(20px, 40px) 1fr minmax(150px, 250px) 1fr;
         
 }
-.left0 {
-    left: -250px;
-}
+
 header h1 {
     margin: 0;
     grid-area: header;
@@ -116,22 +114,44 @@ li {
     margin: auto;
     grid-area: addBtn;
     position: relative;
-    border: 1px solid var(--clr-secondary);
-    
-    
+    border: 1px solid var(--clr-lightwriting);
+    visibility: hidden;
 }
-.addBtn:hover {
-    border: 1px solid var(--clr-main);
-    transform: scale(1.2);
-}
-.addBtn::before {
-    content: "+";
-    position: absolute;
-    right: 9px;
-    top: -12px;
-    color: var(--clr-secondary);
-    font-size: 3em;
-}
+
+
+.plus {
+    position: relative;
+    width:30px;
+    height:30px;
+    transform: translate(-50% , -50%);
+    top: 25px;
+    left:25px;
+  }
+  
+  .plus:before,
+  .plus:after {
+    content: "";
+    position:absolute;
+    background:var(--clr-lightwriting);
+  }
+  
+  /* the vertical line */
+  .plus:before {
+    left:50%;
+    top:4px; /* this defines how much black "border" there should be */
+    bottom:4px;
+    width:2px;
+    transform:translateX(-50%);
+  }
+  
+  /* the horizontal line */
+  .plus:after {
+    top:50%;
+    left:4px;
+    right:4px;
+    height:2px;
+    transform:translateY(-50%);
+  }
 .remove-all-btn {
     grid-area: removeAll ;
 
@@ -168,11 +188,53 @@ input {
 input:focus {
    
     border-bottom: 3px solid var(--clr-secondary);
-    background-color: rgba(255, 255, 255, 0.74);
+    background-color: rgba(255, 255, 255, 0.507);
 }
-.line {
-    width: 30px;
+input:focus + .addBtn {
+    visibility: visible;
+}
+.sidemenu-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 35px;
+    transition: all 1s ease-in
+}
+.menu-btn {
+    width: 35px;
     height: 3px;
-    background-color: var(--clr-main);
-    margin: 6px;
+    background: white;
+    border-radius: 5px;
+    
+}
+
+.menu-btn::after , .menu-btn::before {
+    content: "";
+    width: 35px;
+    height: 3px;
+    background: white;
+    position: absolute;
+    border-radius: 5px;
+    transition: all 1s ease-in
+
+}
+
+.menu-btn::after {
+    transform: translateY(10px);
+}
+.menu-btn::before {
+    transform: translateY(-10px);
+}
+
+.sidemenu-btn.open .menu-btn {
+    transform: translate(-15px);
+    background: 0;
+}
+.sidemenu-btn.open .menu-btn::after {
+    transform: rotate(45deg) translate(10px , -10px);
+}
+.sidemenu-btn.open .menu-btn::before {
+    transform: rotate(-45deg) translate(10px , 10px);
 }
