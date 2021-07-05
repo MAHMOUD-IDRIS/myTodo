@@ -12,25 +12,23 @@
     <div class="container">
         <header>
             <h1>Stuff To Do</h1>
-            <button id="sidemenuBtn">X</button>
+            <div id="sidemenuBtn" class="sidemenu-btn">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
             <div class="listSum">
             <h2>Work List</h2>
             <div class="sum"><p id="itemsOnList">30</p> <p>items to do</p> </div>
             </div>
         </header>
         <main class="displayTodos">
-            <span class="sidemenu">
+            <span class="sidemenu ">
+                
                 <h3>To Do Lists</h3>
                 <ul id="maintasks">
                     <li>make this hapen</li>
                 </ul>
-                <div class="addingRemoving">
-
-                
-                <div id="addbtnTodo"></div>
-                <button id="deleteAll">remove <br> all the tasks </button>
-                <button id="deleteFinished">remove <br> finished tasks  </button>
-                </div>
             </span>
             <ul id="todoItems">
                 <li>Buy materials from shop</li>
@@ -47,15 +45,18 @@
                 <li>Buy materials from shop</li>
                 <li>Buy materials from shop</li>
                 <li>Buy materials from shop</li>
-                <li>Buy materials from shop</li>
+                
+                
                 
             </ul>
 
         </main>
-        <footer>
-            <div id="addbtnTodo"></div>
-            <button id="deleteAll">remove <br> all the tasks </button>
-            <button id="deleteFinished">remove <br> finished tasks  </button>
+        
+        <footer class="addingRemoving">
+            <input type="text" id="input" placeholder="Add New">
+            <div id="add-task-btn" class="addBtn"></div>
+            <button id="remove-all-tasks" class="remove-all-btn">remove <br> all the tasks </button>
+            <button id="remove-finished-tasks" class="remove-finished">remove <br> finished tasks  </button>
         
         </footer>
 

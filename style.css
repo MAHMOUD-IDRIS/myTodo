@@ -14,11 +14,14 @@ color: var(--clr-darkwriting);
 }
 .container {
     width: 100vw;
-    height: calc(100vh - 10px);
+    height: calc(100vh - 9vh);
     max-width: 400px;
     margin: 0 auto;
     padding: 0;
     display: grid;
+    grid: "top" 18vh
+     "mid" 1fr;
+    
     
 }
 header {
@@ -28,11 +31,11 @@ header {
     display: grid;
     grid: 
     "header header header header header header header" auto " .. menu ... summary summary summary summary" 40px / 5px minmax(20px, 40px) 1fr minmax(150px, 250px) 1fr;
-    
-  
-    
+        
 }
-
+.left0 {
+    left: -250px;
+}
 header h1 {
     margin: 0;
     grid-area: header;
@@ -42,7 +45,7 @@ header h1 {
     
    
 }
-header button {
+header .sidemenu-btn {
    grid-area: menu;
 }
 
@@ -64,31 +67,39 @@ main {
     width: 100%;
     color: var(--clr-lightwriting);
     overflow: scroll;
+   
     
 }
 .sidemenu {
-    width: 250px;
-    height: 50vh;
+    width: 100vw;
+    max-width: 400px;
+    height: calc(100vh - 18vh - 60px);
     background-color: blue;
-    position: absolute;
-    top: 20vh;
+    color: white;
+    position:absolute;
     /*left: -250px;*/
+    clip-path: circle(100px at -90% -50%);
+    -webkit-clip-path: circle(100px at -90% -50%);
+    transition: all 1s ease-in;
    
 }
-
-#todoItems li {
+.sidemenu.open {
+    clip-path: circle(1000px at -90% -50%);
+    -webkit-clip-path: circle(1000px at -90% -50%);
+}
+li {
     margin-bottom: 5px;
 }
-footer {
+.addingRemoving {
     margin: 0 ;
     padding: 10px 0;
     height: 90px;
     display: grid;
     grid: "addBtn addBtn addBtn " auto "removeAll .. removeItem" auto / minmax(50px,150px) 1fr minmax(50px,150px);
     position: relative;
-        
+    align-self: flex-end;
 }
-footer::before {
+.addingRemoving::before {
     content: "";
     width: 100%;
     height: 70px;
@@ -97,7 +108,7 @@ footer::before {
     position: absolute;
 }
 
-#addbtnTodo {
+.addBtn {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -109,11 +120,11 @@ footer::before {
     
     
 }
-#addbtnTodo:hover {
+.addBtn:hover {
     border: 1px solid var(--clr-main);
     transform: scale(1.2);
 }
-#addbtnTodo::before {
+.addBtn::before {
     content: "+";
     position: absolute;
     right: 9px;
@@ -121,18 +132,47 @@ footer::before {
     color: var(--clr-secondary);
     font-size: 3em;
 }
-#deleteAll {
+.remove-all-btn {
     grid-area: removeAll ;
 
 }
-#deleteAll , #deleteFinished {
+.remove-all-btn , .remove-finished {
     background: 0;
     border: none;
     font-weight: 600;
     color: var(--clr-darkwriting);
     z-index: 1;
+    
 }
-#deleteFinished {
+.remove-finished {
     grid-area: removeItem ;
     
+}
+input {
+    position:absolute;
+    top: -30px;
+    width: 90%;
+    max-width: 300px;
+    height: 30px;
+    justify-self: center;
+    text-align: center;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid white;
+    font-size: inherit;
+    color: var(--clr-darkwriting);
+    outline: none;
+
+}
+
+input:focus {
+   
+    border-bottom: 3px solid var(--clr-secondary);
+    background-color: rgba(255, 255, 255, 0.74);
+}
+.line {
+    width: 30px;
+    height: 3px;
+    background-color: var(--clr-main);
+    margin: 6px;
 }
