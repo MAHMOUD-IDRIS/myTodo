@@ -3,6 +3,7 @@
     --clr-secondary: #0efdb1;
     --clr-lightwriting: #0efdb1a8 ;
     --clr-darkwriting: #021b13b2;
+    --clr-shade: #0efdb115 ;
 }
 body {
 box-sizing: border-box;
@@ -15,17 +16,17 @@ color: var(--clr-darkwriting);
 .container {
     width: 100vw;
     height: calc(100vh - 9vh);
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 0;
     display: grid;
-    grid: "top" minmax(100px, 18vh)
+    grid: "top" minmax(80px, 15vh)
      "mid" 1fr;
 }
 header {
     margin: 0;
-    height: 18vh;
-    min-height: 100px;
+    height: 15vh;
+    min-height: 80px;
     background-color: var(--clr-secondary);
     display: grid;
     grid: 
@@ -81,26 +82,17 @@ main {
    
 }
 .sidemenu.open {
-    clip-path: circle(1000px at -90% -50%);
-    -webkit-clip-path: circle(1000px at -90% -50%);
+    clip-path: circle(1500px at -90% -50%);
+    -webkit-clip-path: circle(1500px at -90% -50%);
+   
 }
-li {
-    margin-bottom: 5px;
-}
+
 .addingRemoving {
     margin: 0 ;
     padding: 10px 0;
     height: 90px;
     
 }
-/*.addingRemoving::before {
-    content: "";
-    width: 100%;
-    height: 70px;
-    background-color: var(--clr-secondary);
-    bottom: 0px;
-    position: absolute;
-}*/
 
 .addBtn {
     width: 50px;
@@ -118,9 +110,7 @@ li {
     margin: auto;
    
 }
-li {
-    cursor: pointer;
-}
+
 .removes {
     display: flex;
     justify-content: space-around;
@@ -163,12 +153,16 @@ li {
     grid-area: removeAll ;
 
 }
+.remove-all-btn:hover , .remove-finished:hover {
+    font-size: 1em;
+}
 .remove-all-btn , .remove-finished {
     background: 0;
     border: none;
     font-weight: 600;
     color: var(--clr-lightwriting);
     z-index: 1;
+    transition: all 0.5s ease;
     
 }
 .remove-finished {
@@ -181,11 +175,12 @@ input {
     max-width: 300px;
     justify-self: center;
     text-align: center;
+    font-size: 1.5em;
     background: 0;
     border: 0;
     border-bottom: 1px solid var(--clr-lightwriting);
     opacity: 0.2;
-    color: var(--clr-darkwriting);
+    color: var(--clr-lightwriting);
     outline: none;
     z-index: 10;
 
@@ -194,7 +189,8 @@ input {
 input:focus {
    opacity: 1;
     border-bottom: 3px solid var(--clr-secondary);
-    background-color: rgba(255, 255, 255, 0.507);
+    background-color: var(--clr-shade);
+    
 }
 input:focus + .addBtn {
     opacity: 1;
@@ -243,3 +239,38 @@ input:focus + .addBtn {
 .sidemenu-btn.open .menu-btn::before {
     transform: rotate(-45deg);
 }
+
+ul {
+    list-style: none;
+}
+ li {
+     height: 50px;
+     display: flex;
+     width: 90%;
+     max-width: 500px ;
+     background-color: rgba(255, 255, 255, 0.048);
+     margin-bottom: 5px;
+     justify-content: space-between;
+     align-items: center;
+     font-size: 1.2em;
+     
+ }
+ 
+ li button {
+     min-width: 50px;
+     min-height: 50px;
+     background: 0;
+     background-color: var(--clr-shade);
+     background-image: url("./resources/checked.png");
+     background-size: 30px;
+     background-position-x: 8px;
+     background-repeat: no-repeat;
+     
+     border: 0;
+     transition: all .5s ease-in;
+     
+ }
+ li button:hover {
+     border: 1px solid greenyellow;
+     background-size: 35px;
+ }
