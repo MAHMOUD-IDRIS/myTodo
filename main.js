@@ -2,7 +2,7 @@ const data = {
     lists: [
         {id: 1, statusOfItem: true , list: "Dukkan", 
             tasks: [
-                {id: 1.1 ,statusOfItem: true , task: "buy tomato"},{id: 1.1 ,statusOfItem: true , task: "buy chocolate"}
+                {id: 1.1 ,statusOfItem: true , task: "buy tomato"},{id: 1.1 ,statusOfItem: true , task: "buy chocolate"}, {id: 1.1 ,statusOfItem: true , task: "buy chocolate"}
             ]
         },
         {id: 2, statusOfItem: true , list: "Appartment", 
@@ -89,22 +89,41 @@ function renderLists (){
                     console.log('selecting List', el.target.innerText);
                     getSelectedList (el.target.innerText)
                 } else {
+                    
                     console.log('selecting Task', el.target.innerText)
-                }               
-                  
+                }                 
             }
-        })
+        });
+        document.querySelectorAll('li>button').forEach(button => {button.onclick = selectItem})
     }
 renderLists();
+function findSelectedTask(element){
+    const tasks = listSelected.tasks
+    console.log(element, tasks)
+    let task;
+    for (let i in tasks){
+        console.log(i, tasks[i].task);
+       tasks[i].task == element ? task= tasks[i] : "Try Again :("                  
+    }
+    console.log(task)
+    return task
+}
     function getSelectedList (listName){
-        data.lists.find(el => 
-            {
-                el.list = listName
-                console.log(el);            
-            });
+
+        for (let i in data.lists){
+console.log(i, data.lists[i].list);
+            if (data.lists[i].list == listName) {
+               listSelected = data.lists[i]
+               console.log("s", data.lists[i])
+            } else {
+                console.log ("not found!");
+
+            }
+        }
+       
         console.log("listSelected", listSelected)
         //listSelected = indexOfList;  
-        console.log(listSelected , "renderHeader")
+        
         renderHeader()
     }
 
@@ -118,7 +137,19 @@ renderLists();
     }
 
 function renderHeader(){
-    console.log(listSelected , "renderHeader")
+    console.log(listSelected , "renderHeader" , listSelected.tasks.length)
     selectedListHeader.innerText = listSelected.list;
-    itemsCounter.innerText = listSelected.tasks.length;
+    itemsCounter.innerText = listSelected.tasks.length;    
+}
+
+function selectItem (item){
+console.log(item.target, item.target.parentElement)
+
+item.target.parentElement.classList.toggle('done');
+item.target.classList.toggle('buttonSelected');
+let selectedTask = findSelectedTask(item.target.parentElement.innerText);
+console.log(selectedTask.statusOfItem, "before")
+selectedTask.statusOfItem = selectedTask.statusOfItem == true ? false : true;
+console.log(selectedTask.statusOfItem, "after")
+
 }

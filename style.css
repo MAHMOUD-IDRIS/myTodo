@@ -270,12 +270,16 @@ ul {
      background-size: 30px;
      background-position-x: 8px;
      background-repeat: no-repeat;
-     
      border: 0;
-     transition: all .5s ease-in;
-     
+     transition: all .5s ease-in;     
  }
- li button:hover {
-     border: 1px solid greenyellow;
-     background-size: 35px;
+
+ .buttonSelected {
+     background-color: var(--clr-secondary);
  }
+ .done {
+     color: var(--clr-shade);
+     text-decoration: line-through;
+ }
+ 
+
