@@ -275,7 +275,7 @@ ul {
  }
 
  .buttonSelected {
-     background-color: var(--clr-secondary);
+     background-color: var(--clr-lightwriting);
  }
  .done {
      color: var(--clr-shade);
