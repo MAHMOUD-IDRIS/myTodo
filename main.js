@@ -26,7 +26,11 @@ const listsUl = document.getElementById('maintasks');
 const selectedListHeader = document.getElementById('selectedListHeader');
 
 let sideMenuOpen = false;
-let listSelected = lists[0];
+let listSelected = lists[0] || {id: 1, statusOfItem: false , list: "Demo", 
+tasks: [
+    {id: 1.1 ,statusOfItem: true , task: "Task 1"},{id: 1.1 ,statusOfItem: false , task: "Task 2"}
+]
+} ;
 
 render()
 
@@ -70,8 +74,8 @@ function createItem (inputValue){
 function createListItem (text, placeIt){
 
     let li = document.createElement('li');
-    li.innerText = text;
-    let button = document.createElement('button');
+    li.innerText = text;    
+    let button = document.createElement('button');    
     li.appendChild(button);
     placeIt.appendChild(li);
 }
@@ -243,13 +247,13 @@ render()
 }
 
 document.getElementById('add-btn').onclick = ()=>{
-    const addingText = document.getElementById('input').value
+    const addingText = document.getElementById('input').value;
+    if (addingText == "") return;
     console.log('adding', addingText)
-   if(sideMenuOpen) {
+    if(sideMenuOpen) {
       console.log("adding list" , addingText); 
       lists.push(createItem(addingText));
-      document.getElementById('input').value = "";
-      
+      document.getElementById('input').value = "";      
 
    } else {
        console.log("adding task", addingText, createItem(addingText) );
@@ -273,6 +277,7 @@ function removeAll (){
         listSelected.tasks = []
     }
     render()
+
 }
 
 function removeFinished(){

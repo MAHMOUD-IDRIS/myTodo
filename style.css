@@ -1,9 +1,9 @@
 * {
-    --clr-main : #021b13;
-    --clr-secondary: #0efdb1;
-    --clr-lightwriting: #0efdb1a8 ;
-    --clr-darkwriting: #021b13b2;
-    --clr-shade: #0efdb115 ;
+    --clr-main : #195190ff;
+    --clr-secondary: #a2a2a1ff;
+    --clr-lightwriting: rgba(162, 162, 161, 0.856) ;
+    --clr-darkwriting: rgba(25, 81, 144, 0.801);
+    --clr-shade: rgba(162, 162, 161, 0.322) ;
 }
 body {
 box-sizing: border-box;
@@ -162,7 +162,7 @@ main {
     border: none;
     background-color: rgba(255, 255, 255, 0.062);
     height: 30px;
-    width: 130px;
+    width: 150px;
     font-weight: 600;
     color: var(--clr-lightwriting);
     z-index: 1;
@@ -281,5 +281,8 @@ ul {
      color: var(--clr-shade);
      text-decoration: line-through;
  }
- 
+ h3 {
+     margin-left: 5px;
+     letter-spacing: 3px;
+ }
 
